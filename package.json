@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "pm2 start app.js",
+    "clusterStart" :"pm2 start ./config/process.js"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
@@ -11,7 +12,9 @@
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "mongoose": "^5.9.7",
+    "pm2": "^4.2.3",
     "socket.io": "^2.3.0",
+    "socket.io-redis": "^5.2.0",
     "winston": "^3.2.1"
   }
 }

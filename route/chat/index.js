@@ -7,7 +7,7 @@ router.get('/client', (req, res, next) => {
   res.render('chat/client');
 });
 
-router.get('/api/rooms', (req, res, next) => {
+router.get('/api/chats', (req, res, next) => {
   res.setHeader("Content-Type", "application/json");
   res.statusCode  =  200;
   connect.then(db  =>  {

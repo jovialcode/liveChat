@@ -1,4 +1,4 @@
-const CONFIG = {
+module.exports = {
     DEV : {
         PORT : 3000,
         DB : {
@@ -8,8 +8,12 @@ const CONFIG = {
             USER : {
 
             }
+        },
+        REDIS : {
+            URL : 'localhost',
+            PORT : 6379
         }
     }
 
 }
-module.exports = CONFIG;
+;

@@ -1,12 +1,22 @@
 const SocketIo = require('socket.io');
+const redis = require('socket.io-redis');
+
+const Logger = require('../util/logger');
+const CONFIG = require('../config/config');
 const {saveChat} = require('../repository/chat');
 const Chat = require('../model/chat');
-const Logger = require('../util/logger');
 
 module.exports = (server) => {
     const io = SocketIo(server, {
         path : '/socket.io'
     });
+
+    // Adapting Redis
+    io.adapter(redis({
+            host: CONFIG.DEV.REDIS.URL,
+            port: CONFIG.DEV.REDIS.PORT
+        })
+    );
 
     //사용자 socket 연결
     io.on('connection', function(socket){
