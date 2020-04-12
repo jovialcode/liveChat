@@ -1,6 +1,7 @@
 const SocketIo = require('socket.io');
-const connect  = require("config/dbConnection");
-const Logger = require('util/logger');
+const connect  = require("../repository/dbConnection");
+const Chat = require('../model/chat');
+const Logger = require('../util/logger');
 
 module.exports = (server) => {
     const io = SocketIo(server, {
@@ -22,10 +23,21 @@ module.exports = (server) => {
         });
 
         // 사용자에게 메시지 보내
-        socket.on('send message', function(name,text){
-            const msg = name + ' : ' + text;
-            Logger.info(name, msg);
-            socket.emit('receive message', msg);
+        socket.on('send message', function(name, text){
+            const message = name + ' : ' + text;
+            Logger.info(name, message);
+            io.emit('receive message', message);
+
+            //메세지 DB에 저장하기
+            connect.then(db => {
+                let chatMessage = new Chat({
+                    rootId: '123',
+                    userName: name,
+                    message: ''
+                });
+                Logger.info('DB로 저장되었습니다.');
+                chatMessage.save();
+            });
         });
     });
 }

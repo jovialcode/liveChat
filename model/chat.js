@@ -3,9 +3,8 @@ const  Schema  =  mongoose.Schema;
 const  chat  =  new Schema(
     {
         roomId: String,
-        userId: String,
-        message: String,
-        createDate : {type:Date, default: Date.now()}
+        userName: String,
+        message: String
     },
     {
         timestamps: true
