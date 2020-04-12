@@ -14,6 +14,8 @@
                 const $name = $('#name');
                 const $content = $('#message');
 
+                if(!$content.val()) return alert('내용을 입력해주세요.');
+
                 //내용 전송
                 socket.emit("send message", $name.val(), $content.val());
                 //초기화

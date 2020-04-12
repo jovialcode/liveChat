@@ -2,9 +2,9 @@ const  mongoose  = require("mongoose");
 const  Schema  =  mongoose.Schema;
 const  chat  =  new Schema(
     {
-        roomId: String,
-        userName: String,
-        message: String
+        roomId: {type: String, required:true},
+        userName: {type: String, required:true},
+        message: {type: String, required:true}
     },
     {
         timestamps: true
