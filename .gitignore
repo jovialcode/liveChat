@@ -1,0 +1,13 @@
+## node library 파일
+/node_modules/
+
+## intellij 생성파일
+.idea
+.settings
+*.iml
+
+## library build 시 생성되는 lock
+package-lock.json
+
+## log 파일
+log

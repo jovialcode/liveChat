@@ -1,0 +1,17 @@
+{
+  "name": "LiveChat",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7",
+    "socket.io": "^2.3.0",
+    "winston": "^3.2.1"
+  }
+}
