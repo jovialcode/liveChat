@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 const CONFIG = require('./config/config');
 const MESSAGE = require('./config/message');
-const chat = require('./service/chat');
+const chat = require('./service/chatService');
 
 const PORT = process.env.PORT || CONFIG.DEV.PORT;
 const app = express();
@@ -21,10 +21,11 @@ app.engine('html', require('ejs').renderFile);
 const logger = require('./util/logger');
 
 //ROUTE 설정
-const indexRouter = require('./route/index');
-const chatRouter = require('./route/chat/index');
-app.use('/', indexRouter);
-app.use('/chat', chatRouter);
+const viewRouter = require('./route/viewRouter');
+const chatApiRouter = require('./route/api/chatApiRouter');
+
+app.use('/', viewRouter);
+app.use('/api/chats', chatApiRouter);
 
 //bodyParser 미들웨어 설정
 app.use(bodyParser.json());

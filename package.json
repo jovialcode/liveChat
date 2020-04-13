@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "pm2 start app.js",
+    "start": "node app.js",
+    "pmstart": "pm2 start app.js",
     "clusterStart" :"pm2 start ./config/process.js"
   },
   "dependencies": {

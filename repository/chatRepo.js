@@ -1,5 +1,5 @@
 const connect  = require("../repository/dbConnection");
-const Chat = require('../model/chat');
+const ChatRepo = require('../model/chat');
 const Logger = require('../util/logger');
 
 exports.saveChat = (chat) =>{
@@ -10,5 +10,14 @@ exports.saveChat = (chat) =>{
         chatMessage.save(()=>{
             Logger.info('DB로 저장되었습니다.');
         });
+    });
+}
+
+exports.getChat = () =>{
+    connect.then(db  =>  {
+        Chats.find({})
+            .then(chat  =>  {
+                return chat;
+            })
     });
 }

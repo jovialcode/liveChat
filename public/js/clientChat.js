@@ -29,6 +29,11 @@
                 const roomMessages = document.getElementById("roomMessages");
                 roomMessages.appendChild(li).append(data);
             });
+        },
+        receiveMessageTemplate(message){
+            let t = [];
+            t.push(`<span>${message}</span>`);
+            return t.join('');
         }
     };
     fn.init();
