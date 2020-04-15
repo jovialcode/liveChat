@@ -13,4 +13,4 @@ package-lock.json
 log
 
 # iaas
-/laas/vagrant/.vagrant
+/laas/vagrant/.vagrant/

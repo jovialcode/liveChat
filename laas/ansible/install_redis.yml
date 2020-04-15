@@ -1,0 +1,13 @@
+---
+- name: Install Redis
+  hosts: redisServer
+  vars:
+    redis_port: 6379
+    redis_databases: 1
+
+  tasks:
+    - name : install epel-release
+      action: "{{ ansible_pkg_mgr }} name=epel-release state=latest"
+    - name : install redis-server
+      action : "{{ ansible_pkg_mgr }} name=redis-server state=latest"
+    - name : redis configure
