@@ -3,7 +3,7 @@ module.exports = {
         PORT : 3000,
         DB : {
             URL : 'localhost',
-            PORT : 27017,
+            PORT : 60083,
             SCHEME : 'chat',
             USER : {
 
@@ -11,9 +11,10 @@ module.exports = {
         },
         REDIS : {
             URL : 'localhost',
-            PORT : 6379
+            PORT : 60081
         }
     }
 
 }
 ;
+

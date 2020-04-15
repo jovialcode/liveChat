@@ -1,6 +1,7 @@
 ---
 - name: Install Redis
   hosts: redisServer
+  become: yes
   vars:
     redis_port: 6379
     redis_databases: 1
@@ -8,6 +9,12 @@
   tasks:
     - name : install epel-release
       action: "{{ ansible_pkg_mgr }} name=epel-release state=latest"
-    - name : install redis-server
-      action : "{{ ansible_pkg_mgr }} name=redis-server state=latest"
-    - name : redis configure
+    - name : install redis
+      action : "{{ ansible_pkg_mgr }} name=redis state=latest"
+      # 여기서 config 복사하는 거나 수정하는거 필요함.
+      # redis가 local addr만 connection 되는거 0.0.0.0으로 바꿔줘야함.
+#    - name: write redis.conf
+#      notify :
+#        - start redis-server
+    - name : start redis-server
+      service : name=redis state=started

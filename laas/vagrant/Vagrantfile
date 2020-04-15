@@ -55,5 +55,8 @@ Vagrant.configure("2") do |config|
       #ansible-redis 서버에 redis 설치
       cfg.vm.provision "file", source: "../ansible/install_redis.yml", destination: "install_redis.yml"
       cfg.vm.provision "shell", inline: "ansible-playbook install_redis.yml"
+      #ansible-mongodb 서버에 mongo DB설치
+      cfg.vm.provision "file", source: "../ansible/install_mongodb.yml", destination: "install_mongodb.yml"
+      cfg.vm.provision "shell", inline: "ansible-playbook install_mongodb.yml"
   end
 end
