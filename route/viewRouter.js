@@ -1,5 +1,8 @@
 const express = require('express');
+const cluster = require('cluster');
 const router = express.Router();
+
+const Logger = require('../util/logger');
 
 // index.html
 router.get('/', function(req, res, next) {
@@ -8,6 +11,7 @@ router.get('/', function(req, res, next) {
 
 //client.html 맵핑
 router.get('/chat', (req, res, next) => {
+  Logger.debug('worker: ' + cluster.worker.id);
   res.render('chat');
 });
 

@@ -1,10 +1,11 @@
 const socketIo = require('socket.io');
 const socketIoRedis = require('socket.io-redis');
+const cluster = require('cluster');
 
 const Logger = require('../util/logger');
 const CONFIG = require('../config/config');
 const {saveChat} = require('../repository/chatRepo');
-const ChatService = require('../model/chat');
+const Chat = require('../model/chat');
 
 module.exports = (server) => {
     const io = socketIo(server, {
@@ -39,7 +40,7 @@ module.exports = (server) => {
             io.emit('receive message', message);
 
             //메세지 DB에 저장하기
-            saveChat(new ChatService({
+            saveChat(new Chat({
                 roomId: '123',
                 userName: name,
                 message: message})

@@ -4,6 +4,7 @@ const fs = require('fs');
 const os = require('os');
 const http = require('http');
 const bodyParser = require('body-parser');
+const sticky = require('sticky-session');
 
 const CONFIG = require('./config/config');
 const MESSAGE = require('./config/message');
@@ -35,15 +36,18 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // TODO 노드 배포 환경에 따라서 서버 생성 달리 할지 고민중
 if(process.env.NODE_ENV === 'production') {
-    logger.info(MESSAGE.PRODUCTION_SERVER_CONNECT);
+    //logger.info(MESSAGE.PRODUCTION_SERVER_CONNECT);
 } else {
-    logger.info(MESSAGE.DEV_SERVER_CONNECT);
+    //logger.info(MESSAGE.DEV_SERVER_CONNECT);
 }
 
 //서버 생성
 const server = http.createServer(app).listen(PORT, () => {
     logger.info(MESSAGE.DEV_SERVER_CONNECT);
 });
+
+//workers를 사용하기 때문에 sticky session 설정
+sticky.listen(server,3000);
 
 //채팅 socket.io 설정
 chat(server);

@@ -1,11 +1,20 @@
 (function(){
-    let socket, fn  = {};
+    let socket, BT, fn  = {} ;
 
     fn = {
         init (){
+            //변수 초기화
             socket = io();
+            BT = {};
+
+            //변수 바인딩
+            fn.binding();
+
             //이벤트 바인딩
             fn.event();
+        },
+        binding(){
+            BT.$roomMessage = $('#roomMessages');
         },
         event() {
             //텍스트 전송
@@ -29,11 +38,8 @@
                 const roomMessages = document.getElementById("roomMessages");
                 roomMessages.appendChild(li).append(data);
             });
-        },
-        receiveMessageTemplate(message){
-            let t = [];
-            t.push(`<span>${message}</span>`);
-            return t.join('');
+
+            //스크롤 down Event
         }
     };
     fn.init();
