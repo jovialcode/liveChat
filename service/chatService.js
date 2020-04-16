@@ -1,5 +1,5 @@
-const SocketIo = require('socket.io');
-const redis = require('socket.io-redis');
+const socketIo = require('socket.io');
+const socketIoRedis = require('socket.io-redis');
 
 const Logger = require('../util/logger');
 const CONFIG = require('../config/config');
@@ -7,12 +7,12 @@ const {saveChat} = require('../repository/chatRepo');
 const ChatService = require('../model/chat');
 
 module.exports = (server) => {
-    const io = SocketIo(server, {
+    const io = socketIo(server, {
         path : '/socket.io'
     });
 
     // Adapting Redis
-    io.adapter(redis({
+    io.adapter(socketIoRedis({
             host: CONFIG.DEV.REDIS.URL,
             port: CONFIG.DEV.REDIS.PORT
         })

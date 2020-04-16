@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node app.js",
     "pmstart": "pm2 start app.js",
-    "clusterStart": "pm2 start ./config/process.js"
+    "clusterStart": "pm2 start -f ./config/process.js &",
+    "processMonitor": "pm2 plus"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
