@@ -3,20 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "pmstart": "pm2 start app.js",
-    "clusterStart": "pm2 start -f ./config/process.js &",
-    "processMonitor": "pm2 plus"
+    "start": "node app.js"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
+    "farmhash": "^3.0.0",
     "mongoose": "^5.9.7",
     "pm2": "^4.2.3",
     "socket.io": "^2.3.0",
     "socket.io-redis": "^5.2.0",
+    "sticky-cluster": "^0.3.5",
     "sticky-session": "^1.1.2",
     "winston": "^3.2.1"
   }

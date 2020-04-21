@@ -21,6 +21,7 @@ module.exports = (server) => {
 
     //사용자 socket 연결
     io.on('connection', function(socket){
+        console.log('New client connection detected on process ' + process.pid);
 
         //사용자 입장
         console.log('user connected: ', socket.id);
