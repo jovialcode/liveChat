@@ -8,7 +8,7 @@
 6. babel 또는 parcel 셋팅
 7. pm2 + cluster, redis sub/pub 로 셋팅해주시길. => 일딴 pm2 없이 작업해볼것. window에서 사용하기 불편함.
 8. namespace/room/event 트래픽 격리 구분과 public/private/broadcasting 이벤트 전송 방식을 필수로 구현
-9. pm2을 쓸지 아니면 그냥 순수하게 process, cluster 관리할지.. 그렇다면 모니터링은 어떻게 할지?
+9. 순수하게 process, cluster 관리할지.. 그렇다면 모니터링은 어떻게 할지?
 10. 여유 되면 node를 centos에 올리던가.
 
 

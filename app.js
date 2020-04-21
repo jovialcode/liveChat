@@ -14,7 +14,7 @@ const MESSAGE = require('./config/message');
 const chat = require('./service/chatService');
 
 const PORT = process.env.PORT || CONFIG.DEV.PORT;
-const NUM_PROCESSES = os.cpus.length;
+const NUM_PROCESSES = os.cpus().length;
 
 //ROUTE 설정
 const viewRouter = require('./route/viewRouter');
