@@ -4,7 +4,6 @@ const fs = require('fs');
 const os = require('os');
 const http = require('http');
 const bodyParser = require('body-parser');
-const sticky = require('sticky-session');
 const cluster = require('cluster');
 const net = require('net');
 const farmhash = require('farmhash');

@@ -10,7 +10,7 @@
 8. namespace/room/event 트래픽 격리 구분과 public/private/broadcasting 이벤트 전송 방식을 필수로 구현
 9. 순수하게 process, cluster 관리할지.. 그렇다면 모니터링은 어떻게 할지?
 10. 여유 되면 node를 centos에 올리던가.
-
+11. vagrant up할 때 => 즉 서버가 내려갔다가 구동됬을 때 자동으로 각 서비스가 데몬으로 실행되어야함.
 
 # 궁금한점
 1. redis pub/sub는 따로 설정 없이 adapter만 해주면 가능한건강?
