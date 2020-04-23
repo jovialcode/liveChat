@@ -23,6 +23,11 @@
     - name : install MongoDB
       action : "{{ ansible_pkg_mgr }} name=mongodb-org state=latest"
 
+    - name: mongo conf copy
+        template:
+          src: mongodd.j2
+          dest: /etc/mongod.conf
+
       #bind 되는 IP 0.0.0.0 으로 설정해줘야함
 
     - name : start mongodb
