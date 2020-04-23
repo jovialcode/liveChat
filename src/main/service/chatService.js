@@ -3,7 +3,7 @@ const socketIoRedis = require('socket.io-redis');
 const cluster = require('cluster');
 
 const Logger = require('../util/logger');
-const CONFIG = require('../config/config');
+const CONFIG = require('../../config/config');
 const {saveChat} = require('../repository/chatRepo');
 const Chat = require('../model/chat');
 
@@ -36,7 +36,7 @@ module.exports = (server) => {
 
         // 사용자에게 메시지 보내
         socket.on('send message', function(name, text){
-            const message = name + ' : ' + text;
+            const message = text;
             Logger.info(name, message);
             io.emit('receive message', message);
 

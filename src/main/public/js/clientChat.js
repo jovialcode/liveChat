@@ -15,12 +15,13 @@
         },
         binding(){
             BT.$roomMessage = $('#roomMessages');
+            BT.$name = $('#name');
         },
         event() {
             //텍스트 전송
             $("form").submit(function(e) {
                 e.preventDefault();
-                const $name = $('#name');
+                const $name = BT.$name;
                 const $content = $('#message');
 
                 if(!$content.val()) return alert('내용을 입력해주세요.');
@@ -34,12 +35,19 @@
 
             //텍스트 수신
             socket.on("receive message", data  => {
-                let li = document.createElement("li");
+                const nameLi = document.createElement("li");
+                const contentLi = document.createElement("li");
                 const roomMessages = document.getElementById("roomMessages");
-                roomMessages.appendChild(li).append(data);
-            });
 
-            //스크롤 down Event
+                nameLi.className = 'name';
+                contentLi.className = 'content';
+
+                roomMessages.appendChild(nameLi).append(BT.$name.val());
+                roomMessages.appendChild(contentLi).append(data);
+
+                //스크롤 down Event
+                BT.$roomMessage.scrollTop(BT.$roomMessage[0].scrollHeight);
+            });
         }
     };
     fn.init();

@@ -1,6 +1,6 @@
 const mongoose  = require("mongoose");
 const Logger = require('../util/logger');
-const CONFIG = require('../config/config');
+const CONFIG = require('../../config/config');
 
 mongoose.Promise = require("bluebird");
 

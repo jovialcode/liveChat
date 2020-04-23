@@ -1,24 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
 * {
 	box-sizing: border-box;
 }
 
 body {
 	background-color: #edeff2;
-	font-family: "Calibri", "Roboto", sans-serif;
+	font-family: "Nanum Gothic", "Calibri", "Roboto", sans-serif;
 }
 
 .chat_window {
 	position: absolute;
 	width: calc(100% - 20px);
-	max-width: 800px;
-	height: 500px;
+	max-width: 450px;
+	height: 600px;
 	border-radius: 10px;
-	background-color: #fff;
+	background-color: #ffffff;
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%) translateY(-50%);
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-	background-color: #f8f8f8;
 	overflow: hidden;
 }
 
@@ -26,7 +27,7 @@ body {
 	background-color: #fff;
 	width: 100%;
 	padding: 20px 0 15px;
-	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid #d2d2d6;
 }
 .top_menu .buttons {
 	margin: 3px 0 0 20px;
@@ -51,16 +52,18 @@ body {
 }
 .top_menu .title {
 	text-align: center;
-	color: #bcbdc0;
+	color: #272728;
+	font-family: "Nanum Gothic";
+	font-weight:600;
 	font-size: 20px;
 }
 
 .roomMessages {
 	position: relative;
 	list-style: none;
-	padding: 20px 10px 0 10px;
+	padding: 30px 20px 0 20px;
 	margin: 0;
-	height: 347px;
+	height: 462px;
 	overflow-y: scroll;
 	overflow-x : hidden;
 }
@@ -198,13 +201,22 @@ body {
 	display: none;
 }
 
-.roomMessages > li {
+.roomMessages > li{
 	font-size: 15px;
-	color: rgba(49, 49, 48, 0.97);
-	background: #e3dfd875;
-	border-radius: 5px;
-	width: fit-content;
-	margin-bottom: 2px;
+}
+
+.roomMessages > li.name{
+	color: rgba(18, 18, 18, 0.97);
+	margin-bottom: 8px;
+}
+
+.roomMessages > li.content{
+	line-height: 15px;
+	color: rgba(58, 58, 57, 0.97);
+	border-radius: 10px;
+	border: 1px solid #cacbce;
+	padding: 10px 15px;
+	margin-bottom: 20px;
 }
 
 .roomMessages > span {

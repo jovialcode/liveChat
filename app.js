@@ -8,16 +8,16 @@ const cluster = require('cluster');
 const net = require('net');
 const farmhash = require('farmhash');
 
-const CONFIG = require('./config/config');
-const MESSAGE = require('./config/message');
-const chat = require('./service/chatService');
+const CONFIG = require('./src/config/config');
+const MESSAGE = require('./src/config/message');
+const chat = require('./src/main/service/chatService');
 
 const PORT = process.env.PORT || CONFIG.DEV.PORT;
 const NUM_PROCESSES = os.cpus().length;
 
 //ROUTE 설정
-const viewRouter = require('./route/viewRouter');
-const chatApiRouter = require('./route/api/chatApiRouter');
+const viewRouter = require('./src/main/route/viewRouter');
+const chatApiRouter = require('./src/main/route/api/chatApiRouter');
 
 if (cluster.isMaster) {
     let workers = [];
@@ -48,7 +48,7 @@ if (cluster.isMaster) {
     const app = new express();
 
     //APP 설정
-    app.set('views', './view');
+    app.set('views', './src/main/view');
     app.set('view engine', 'ejs');
     app.engine('html', require('ejs').renderFile);
 
@@ -59,7 +59,7 @@ if (cluster.isMaster) {
     app.use(bodyParser.json());
 
     // 디렉토리 맵핑 설정
-    app.use(express.static(path.join(__dirname, '/public')));
+    app.use(express.static(path.join(__dirname, './src/main/public')));
 
     // TODO 노드 배포 환경에 따라서 서버 생성 달리 할지 고민중
     if(process.env.NODE_ENV === 'production') {} else {}

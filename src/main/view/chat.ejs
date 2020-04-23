@@ -13,7 +13,7 @@
                 <div class="button minimize"></div>
                 <div class="button maximize"></div>
             </div>
-            <div class="title">ChatService</div>
+            <div class="title">실시간 채팅</div>
         </div>
         <ul id ="roomMessages" class="roomMessages">
 
@@ -22,13 +22,11 @@
         <div class="bottom_wrapper clearfix">
             <i id="typing"></i>
             <form id="form">
-                <input id="name" type="hidden" value="박명언">
+                <input id="name" type="hidden" value="<%= name %>">
                 <div class="message_input_wrapper">
                     <input id="message" class="message_input" placeholder="메세지를 입력해주세요." />
                 </div>
-                <button class="send_message">
-                    Send
-                </button>
+                <button class="send_message">발송</button>
             </form>
         </div>
     </div>

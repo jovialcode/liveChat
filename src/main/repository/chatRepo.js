@@ -1,4 +1,4 @@
-const connect  = require("../repository/dbConnection");
+const connect  = require("./dbConnection");
 const ChatRepo = require('../model/chat');
 const Logger = require('../util/logger');
 

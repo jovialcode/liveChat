@@ -12,7 +12,9 @@ router.get('/', function(req, res, next) {
 //client.html 맵핑
 router.get('/chat', (req, res, next) => {
   Logger.debug('worker: ' + cluster.worker.id);
-  res.render('chat');
+  res.render('chat',{
+    name: "박명언"
+  });
 });
 
 //admin.html 맵핑

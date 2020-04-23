@@ -3,7 +3,7 @@ const process = require('process');
 const path = require('path');
 
 const { combine, timestamp, label, printf } = winston.format;
-const appRoot = path.join(__dirname, '../');
+const appRoot = path.join(__dirname, '../../../');
 
 // log 출력 포맷 정의
 const myFormat = printf(({ level, message, label, timestamp }) => {
