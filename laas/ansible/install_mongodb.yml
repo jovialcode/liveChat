@@ -25,8 +25,11 @@
 
     - name: mongo conf copy
         template:
-          src: mongodd.j2
+          src: mongod.conf
           dest: /etc/mongod.conf
+          owner: root
+          group: root
+          mode: 0644
 
       #bind 되는 IP 0.0.0.0 으로 설정해줘야함
 

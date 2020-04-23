@@ -11,12 +11,14 @@
       action: "{{ ansible_pkg_mgr }} name=epel-release state=latest"
     - name : install redis
       action : "{{ ansible_pkg_mgr }} name=redis state=latest"
-      # 여기서 보안 모드 바꿔줘얗함
-      # DENIED Redis is running in protected mode because protected mode is enabled
-      # 여기서 config 복사하는 거나 수정하는거 필요함.
-      # redis가 local addr만 connection 되는거 0.0.0.0으로 바꿔줘야함.
-#    - name: write redis.conf
-#      notify :
-#        - start redis-server
+
+    - name: redis conf copy
+        template:
+          src: redis.conf
+          dest: /etc/redis.conf
+          owner: root
+          group: root
+          mode: 0644
+
     - name : start redis-server
       service : name=redis state=started
