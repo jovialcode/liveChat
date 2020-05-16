@@ -14,3 +14,6 @@ log
 
 # iaas
 /laas/vagrant/.vagrant/
+
+#docker
+resourceRegistry.log
