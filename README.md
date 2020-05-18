@@ -11,7 +11,9 @@
 9. 순수하게 process, cluster 관리할지.. 그렇다면 모니터링은 어떻게 할지?
 10. 여유 되면 node를 centos에 올리던가.
 11. vagrant up할 때 => 즉 서버가 내려갔다가 구동됬을 때 자동으로 각 서비스가 데몬으로 실행되어야함.
-12. nginx로 노드 2대 load balancing , session 처리해보기
+12. vagrant 로 작업했던거 docker compose로 변경해보기
+13. docker compose 로 된거 kubernates로 옮겨서
+14. nginx로 노드 2대 load balancing , session 처리해보기 
 
 # 궁금한점
 1. redis pub/sub는 따로 설정 없이 adapter만 해주면 가능한건강?
